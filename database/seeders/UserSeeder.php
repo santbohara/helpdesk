@@ -16,20 +16,20 @@ class UserSeeder extends Seeder
     {
         // User::truncate();
 
-        $data = [
+        $user = User::create(
             [
                 'id'         => Str::uuid(36),
                 'name'       => 'Admin',
                 'username'   => 'admin',
                 'email'      => 'admin@admin.com',
-                'mobile'     => '1234567890',
+                'mobile'     => '9841000000',
                 'role_id'    => '0',
                 'password'   => Hash::make('123456'),
                 'active'     => true,
                 'created_at' => now()
             ]
-        ];
+        );
 
-        User::insert($data);
+        $user->assignRole('Admin');
     }
 }

@@ -17,7 +17,7 @@ class RoleSeeder extends Seeder
         $role = Role::create(
             [
                 'id'         => Str::uuid(36),
-                'name'       => 'SuperAdmin',
+                'name'       => 'Admin',
                 'guard_name' => 'web',
                 'created_at' => now()
             ]
