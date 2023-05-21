@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.vscomp-wrapper{
+    height: 50px !important;
+}
+.vscomp-dropbox{
+    @apply shadow-md border border-gray-300 dark:border-gray-600 dark:bg-gray-900 rounded-md overflow-hidden;
+}
+.vscomp-option{
+    @apply my-2 dark:bg-gray-900 dark:text-gray-400;
+}
+.vscomp-search-wrapper{
+    @apply mb-2 dark:bg-gray-800;
+}
+.vscomp-ele {
+    max-width: 100% !important;
+}
+.vscomp-toggle-button {
+    @apply py-3 border-gray-300 transition block w-full duration-150 rounded-md shadow-inner text-white dark:bg-gray-800 dark:border-gray-600;
+}
+.vscomp-value {
+    @apply text-gray-500 dark:text-gray-400;
+}
+.pop-comp-wrapper{
+  @apply rounded-md overflow-hidden;
+}
+.vscomp-search-container {
+    @apply bg-gray-50 dark:bg-gray-900 dark:text-gray-400;
+    border: none !important;
+}
+.vscomp-search-input {
+    border: none !important;
+    padding: 0 !important;
+}
+.vscomp-arrow::after{
+    @apply dark:border-b-gray-600 dark:border-r-gray-600;
+}
+.vscomp-option:hover,
+.vscomp-option.focused,
+.vscomp-option.selected
+{
+    @apply dark:bg-gray-700;
+}
+.vscomp-search-input:focus {
+    border: none !important;
+    border-color: transparent !important;
+    outline: none !important;
+    border-color: inherit !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+.vscomp-no-search-results{
+    @apply dark:text-gray-400;
+}
+
+
+/** Quill Editor css tweak, to support tailwind dark mode **/
+.ql-toolbar.ql-snow{
+    @apply dark:bg-gray-800;
+}
+.ql-toolbar {
+    @apply border-b-0 dark:border-gray-700 !important;
+}
+.ql-fill {
+    @apply fill-gray-400 !important;
+}
+.ql-stroke, .ql-picker-label, .ql-fill  {
+    @apply dark:text-gray-400 stroke-gray-400 !important;
+}
