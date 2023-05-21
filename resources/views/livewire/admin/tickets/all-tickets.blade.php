@@ -40,11 +40,7 @@
         <div class="flex flow-row gap-3 justify-center">
 
             <div class="flex self-center">
-<<<<<<< HEAD
-                @if($topic || $active)
-=======
                 @if($filter)
->>>>>>> 6a01074 (Add existing project files to Git)
                     <a href="#" wire:click="refresh" class="text-blue-500 hover:underline">
                         <i class="bi bi-x-circle"></i> Clear Filter
                     </a>
@@ -70,32 +66,6 @@
             </div>
 
             <div>
-<<<<<<< HEAD
-                <x-btn-secondary-outline id="filterDropdownButton" data-dropdown-toggle="filterDropdown">
-                    <i class="bi bi-funnel-fill mr-1"></i> Filter <i class="bi bi-chevron-down"></i>
-                </x-btn-secondary-outline>
-
-                <div wire:ignore.self id="filterDropdown" class="z-10 hidden w-48 p-3 bg-white rounded-lg shadow-lg dark:bg-gray-700">
-
-                    <x-input-label class="mb-3">By Category</x-input-label>
-                    <ul class="space-y-2 text-sm border-b dark:border-b-gray-600 pb-3" aria-labelledby="filterDropdownButton">
-                        @foreach ($topics as $topic)
-                            <li class="flex items-center">
-                                <x-checkbox-filter wire:model="topic" id="{{ $topic->id }}" value="{{ $topic->id }}" />
-                                <x-checkbox-label for="{{ $topic->id }}">{{ $topic->title }}</x-checkbox-label>
-                            </li>
-                        @endforeach
-                    </ul>
-
-                    <x-input-label class="my-3">By Status</x-input-label>
-                    <ul class="space-y-2 text-sm" aria-labelledby="filterDropdownButton">
-                        <li class="flex items-center">
-                            <x-checkbox-filter wire:model="active" id="status-active" value="1" />
-                            <x-checkbox-label for="status-active" class="">Pending</x-checkbox-label>
-                        </li>
-                    </ul>
-
-=======
                 <x-btn-secondary-outline data-drawer-target="drawer-add" data-drawer-show="drawer-add"
                 data-drawer-placement="right" aria-controls="drawer-add" >
                     <i class="bi bi-funnel-fill mr-1"></i> Filter 
@@ -118,7 +88,6 @@
                     </button>
 
                     @include('livewire.admin.tickets.filter-tickets')
->>>>>>> 6a01074 (Add existing project files to Git)
                 </div>
             </div>
         </div>
@@ -129,11 +98,7 @@
 
     <div class="w-full realtive bg-white dark:bg-gray-800 relative shadow-md mb-6 my-3">
 
-<<<<<<< HEAD
-        <x-loading-absolute wire:loading.flex wire:target="search, topic, active">Loading...</x-loading-absolute>
-=======
         <x-loading-absolute wire:loading.flex wire:target="search, filter">Loading...</x-loading-absolute>
->>>>>>> 6a01074 (Add existing project files to Git)
 
         {{-- Table --}}
         <div class="overflow-x-auto">
@@ -186,15 +151,12 @@
                             </div>
                         </th>
                         <th scope="col" class="px-4 py-3">
-<<<<<<< HEAD
-=======
                             <div class="flex items-center gap-4">
                                 Ticket Date
                                 <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'created_at' ? 'text-blue-500' : null }}" wire:click="sortBy('created_at')"></i>
                             </div>
                         </th>
                         <th scope="col" class="px-4 py-3">
->>>>>>> 6a01074 (Add existing project files to Git)
                             <span class="sr-only">Actions</span>
                         </th>
                     </tr>
@@ -216,10 +178,7 @@
                             <td class="px-4 py-3">{{ $ticket->account_number }}</td>
                             <td class="px-4 py-3">{{ $ticket->mobile }}</td>
                             <td class="px-4 py-3">{{ $ticket->status }}</td>
-<<<<<<< HEAD
-=======
                             <td class="px-4 py-3">{{ $ticket->created_at }}</td>
->>>>>>> 6a01074 (Add existing project files to Git)
                         </tr>
                     @empty
                         <tr>
