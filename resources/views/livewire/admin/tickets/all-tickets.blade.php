@@ -40,7 +40,11 @@
         <div class="flex flow-row gap-3 justify-center">
 
             <div class="flex self-center">
+<<<<<<< HEAD
                 @if($topic || $active)
+=======
+                @if($filter)
+>>>>>>> 6a01074 (Add existing project files to Git)
                     <a href="#" wire:click="refresh" class="text-blue-500 hover:underline">
                         <i class="bi bi-x-circle"></i> Clear Filter
                     </a>
@@ -66,6 +70,7 @@
             </div>
 
             <div>
+<<<<<<< HEAD
                 <x-btn-secondary-outline id="filterDropdownButton" data-dropdown-toggle="filterDropdown">
                     <i class="bi bi-funnel-fill mr-1"></i> Filter <i class="bi bi-chevron-down"></i>
                 </x-btn-secondary-outline>
@@ -90,6 +95,30 @@
                         </li>
                     </ul>
 
+=======
+                <x-btn-secondary-outline data-drawer-target="drawer-add" data-drawer-show="drawer-add"
+                data-drawer-placement="right" aria-controls="drawer-add" >
+                    <i class="bi bi-funnel-fill mr-1"></i> Filter 
+                </x-btn-secondary-outline>
+
+                <!-- Add component -->
+                <div id="drawer-add" wire:ignore
+                    class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-96 dark:bg-gray-800"
+                    tabindex="-1" aria-labelledby="drawer-right-label">
+
+                    <h5 id="drawer-right-label"
+                        class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400">
+                        <i class="bi bi-funnel-fill mr-1"></i> Filter 
+                    </h5>
+
+                    <button type="button" data-drawer-hide="drawer-add" aria-controls="drawer-add"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                        <i class="bi bi-x-lg"></i>
+                        <span class="sr-only">Close</span>
+                    </button>
+
+                    @include('livewire.admin.tickets.filter-tickets')
+>>>>>>> 6a01074 (Add existing project files to Git)
                 </div>
             </div>
         </div>
@@ -100,7 +129,11 @@
 
     <div class="w-full realtive bg-white dark:bg-gray-800 relative shadow-md mb-6 my-3">
 
+<<<<<<< HEAD
         <x-loading-absolute wire:loading.flex wire:target="search, topic, active">Loading...</x-loading-absolute>
+=======
+        <x-loading-absolute wire:loading.flex wire:target="search, filter">Loading...</x-loading-absolute>
+>>>>>>> 6a01074 (Add existing project files to Git)
 
         {{-- Table --}}
         <div class="overflow-x-auto">
@@ -153,6 +186,15 @@
                             </div>
                         </th>
                         <th scope="col" class="px-4 py-3">
+<<<<<<< HEAD
+=======
+                            <div class="flex items-center gap-4">
+                                Ticket Date
+                                <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'created_at' ? 'text-blue-500' : null }}" wire:click="sortBy('created_at')"></i>
+                            </div>
+                        </th>
+                        <th scope="col" class="px-4 py-3">
+>>>>>>> 6a01074 (Add existing project files to Git)
                             <span class="sr-only">Actions</span>
                         </th>
                     </tr>
@@ -174,6 +216,10 @@
                             <td class="px-4 py-3">{{ $ticket->account_number }}</td>
                             <td class="px-4 py-3">{{ $ticket->mobile }}</td>
                             <td class="px-4 py-3">{{ $ticket->status }}</td>
+<<<<<<< HEAD
+=======
+                            <td class="px-4 py-3">{{ $ticket->created_at }}</td>
+>>>>>>> 6a01074 (Add existing project files to Git)
                         </tr>
                     @empty
                         <tr>
