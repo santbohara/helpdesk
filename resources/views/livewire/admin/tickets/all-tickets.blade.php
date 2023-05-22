@@ -110,44 +110,14 @@
                         <th scope="col" class="px-4 py-3">SN</th>
                         <th scope="col" class="px-4 py-3">
                             <div class="flex items-center gap-4">
-                                Ticket ID
+                                Subject
                                 <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'ticket_id' ? 'text-blue-500' : null }}" wire:click="sortBy('ticket_id')"></i>
                             </div>
                         </th>
                         <th scope="col" class="px-4 py-3">
                             <div class="flex items-center gap-4">
-                                Topic
+                                Customer
                                 <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'topic_id' ? 'text-blue-500' : null }}" wire:click="sortBy('topic_id')"></i>
-                            </div>
-                        </th>
-                        <th scope="col" class="px-4 py-3">
-                            <div class="flex items-center gap-4">
-                                Subject
-                                <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'subject' ? 'text-blue-500' : null }}" wire:click="sortBy('subject')"></i>
-                            </div>
-                        </th>
-                        <th scope="col" class="px-4 py-3">
-                            <div class="flex items-center gap-4">
-                                Name
-                                <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'name' ? 'text-blue-500' : null }}" wire:click="sortBy('name')"></i>
-                            </div>
-                        </th>
-                        <th scope="col" class="px-4 py-3">
-                            <div class="flex items-center gap-4">
-                                Account Number
-                                <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'account_number' ? 'text-blue-500' : null }}" wire:click="sortBy('account_number')"></i>
-                            </div>
-                        </th>
-                        <th scope="col" class="px-4 py-3">
-                            <div class="flex items-center gap-4">
-                                Mobile
-                                <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'mobile' ? 'text-blue-500' : null }}" wire:click="sortBy('mobile')"></i>
-                            </div>
-                        </th>
-                        <th scope="col" class="px-4 py-3">
-                            <div class="flex items-center gap-4">
-                                Status
-                                <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'status' ? 'text-blue-500' : null }}" wire:click="sortBy('status')"></i>
                             </div>
                         </th>
                         <th scope="col" class="px-4 py-3">
@@ -157,8 +127,12 @@
                             </div>
                         </th>
                         <th scope="col" class="px-4 py-3">
-                            <span class="sr-only">Actions</span>
+                            <div class="flex items-center gap-4">
+                                Status
+                                <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'status' ? 'text-blue-500' : null }}" wire:click="sortBy('status')"></i>
+                            </div>
                         </th>
+                        <th scope="col" class="px-4 py-3"></th>
                     </tr>
                 </thead>
 
@@ -168,17 +142,26 @@
                         <tr class="border-b dark:border-gray-700">
                             <td class="px-4 py-3">{{ $loop->iteration }}</td>
                             <td class="px-4 py-3">
-                                <a href="{{ route('ticket.view',$ticket->id) }}" class="text-blue-500">{{ $ticket->ticket_id }}</a>
-                            </td>
-                            <td class="px-4 py-3">{{ $ticket->Topic->title }}</td>
-                            <td class="px-4 py-3">
                                 <a href="{{ route('ticket.view',$ticket->id) }}" class="text-blue-500">{{ $ticket->subject }}</a>
+                                <div>
+                                    {{ $ticket->Topic->title }}
+                                </div>
                             </td>
-                            <td class="px-4 py-3">{{ $ticket->name }}</td>
-                            <td class="px-4 py-3">{{ $ticket->account_number }}</td>
-                            <td class="px-4 py-3">{{ $ticket->mobile }}</td>
-                            <td class="px-4 py-3">{{ $ticket->Status->title }}</td>
+                            <td class="px-4 py-3">
+                                <ul>
+                                    <li><span class="font-meduim">{{ $ticket->name }}</span></li>
+                                    <li>{{ $ticket->email }}</li>
+                                </ul>
+                            </td>
                             <td class="px-4 py-3">{{ $ticket->created_at }}</td>
+                            <td class="px-4 py-3">
+                                <span class="text-xs font-medium px-3 py-1 rounded-full {{ $ticket->Status->badge_class}}">
+                                    {{ $ticket->Status->title }}
+                                </span>
+                            </td>
+                            <td class="px-4 py-3">
+                                <i class="bi bi-reply-fill"></i> Replied
+                            </td>
                         </tr>
                     @empty
                         <tr>

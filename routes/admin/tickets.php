@@ -17,8 +17,8 @@ Route::group(['middleware' => 'permission:edit'], function () {
 Route::group(['middleware' => 'permission:list'], function () {
 
     Route::get('pending', Pending::class)->name('ticket.pending.index');
-    Route::get('all-tickets', AllTickets::class)->name('ticket.pending.index');
-    Route::get('ticket/{id}', View::class)->name('ticket.view');
+    Route::get('all-tickets', AllTickets::class)->name('ticket.all');
+    Route::get('all-tickets/{id}', View::class)->name('ticket.view');
 });
 
 //Only for delete permission

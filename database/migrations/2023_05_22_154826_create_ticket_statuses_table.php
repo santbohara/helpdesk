@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('ticket_statuses', function (Blueprint $table) {
             $table->id();
             $table->string('title')->unique();
+            $table->string('badge_class');
             $table->boolean('active');
             $table->timestamps();
         });
