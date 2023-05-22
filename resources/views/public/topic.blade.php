@@ -29,7 +29,7 @@
                         @forelse ($questions as $question)
                             <li class="flex flex-row my-2  text-red-500">
                                 <i class="bi bi-question-circle-fill"></i>
-                                <a href="{{ route('support.view',$question->slug) }}" class="pl-2 font-bold hover:underline hover:text-red-700">
+                                <a href="{{ route('support.view',[$topic->slug,$question->slug]) }}" class="pl-2 font-bold hover:underline hover:text-red-700">
                                     {{ $question->title }}
                                 </a>
                             </li>

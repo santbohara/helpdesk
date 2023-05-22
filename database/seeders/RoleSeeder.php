@@ -17,11 +17,7 @@ class RoleSeeder extends Seeder
         $role = Role::create(
             [
                 'id'         => Str::uuid(36),
-<<<<<<< HEAD
                 'name'       => 'Admin',
-=======
-                'name'       => 'SuperAdmin',
->>>>>>> 6a01074 (Add existing project files to Git)
                 'guard_name' => 'web',
                 'created_at' => now()
             ]
