@@ -68,7 +68,7 @@
             <div>
                 <x-btn-secondary-outline data-drawer-target="drawer-add" data-drawer-show="drawer-add"
                 data-drawer-placement="right" aria-controls="drawer-add" >
-                    <i class="bi bi-funnel-fill mr-1"></i> Filter 
+                    <i class="bi bi-funnel-fill mr-1"></i> Filter
                 </x-btn-secondary-outline>
 
                 <!-- Add component -->
@@ -78,7 +78,7 @@
 
                     <h5 id="drawer-right-label"
                         class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400">
-                        <i class="bi bi-funnel-fill mr-1"></i> Filter 
+                        <i class="bi bi-funnel-fill mr-1"></i> Filter
                     </h5>
 
                     <button type="button" data-drawer-hide="drawer-add" aria-controls="drawer-add"
@@ -168,16 +168,16 @@
                         <tr class="border-b dark:border-gray-700">
                             <td class="px-4 py-3">{{ $loop->iteration }}</td>
                             <td class="px-4 py-3">
-                                <a href="" class="text-blue-500">{{ $ticket->ticket_id }}</a>
+                                <a href="{{ route('ticket.view',$ticket->id) }}" class="text-blue-500">{{ $ticket->ticket_id }}</a>
                             </td>
                             <td class="px-4 py-3">{{ $ticket->Topic->title }}</td>
                             <td class="px-4 py-3">
-                                <a href="" class="text-blue-500">{{ $ticket->subject }}</a>
+                                <a href="{{ route('ticket.view',$ticket->id) }}" class="text-blue-500">{{ $ticket->subject }}</a>
                             </td>
                             <td class="px-4 py-3">{{ $ticket->name }}</td>
                             <td class="px-4 py-3">{{ $ticket->account_number }}</td>
                             <td class="px-4 py-3">{{ $ticket->mobile }}</td>
-                            <td class="px-4 py-3">{{ $ticket->status }}</td>
+                            <td class="px-4 py-3">{{ $ticket->Status->title }}</td>
                             <td class="px-4 py-3">{{ $ticket->created_at }}</td>
                         </tr>
                     @empty

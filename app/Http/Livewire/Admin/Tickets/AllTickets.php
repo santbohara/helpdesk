@@ -69,6 +69,7 @@ class AllTickets extends Component
 
         $query = $query->search('ticket_id',$this->search)
         ->with('Topic')
+        ->with('Status')
         ->orderBy($this->sortBy, $this->sortOrder)
         ->paginate(25);
 
@@ -83,17 +84,17 @@ class AllTickets extends Component
     }
 
     public function refresh() {
-        
+
         $this->filter = false;
-        $this->topic_id = ""; 
-        $this->ticket_id = ""; 
-        $this->account_number = ""; 
-        $this->mobile = ""; 
-        $this->status = ""; 
-        $this->created_at = ""; 
-        $this->created_date_from = ""; 
+        $this->topic_id = "";
+        $this->ticket_id = "";
+        $this->account_number = "";
+        $this->mobile = "";
+        $this->status = "";
+        $this->created_at = "";
+        $this->created_date_from = "";
         $this->created_date_to = "";
-        
+
         return $this->render();
     }
 

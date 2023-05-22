@@ -11,7 +11,7 @@
 
 <aside id="default-sidebar"
     class="flex flex-col absolute z-40 lg:z-30 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0
-    overflow-y-auto no-scrollbar w-64
+    overflow-y-auto no-scrollbar w-52
     shrink-0 transition-all duration-200 ease-in-out -translate-x-64 h-screen
     bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 border-r"
     aria-label="Sidebar">

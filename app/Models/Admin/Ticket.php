@@ -29,4 +29,9 @@ class Ticket extends Model
     {
         return $this->belongsTo(Topic::class);
     }
+
+    public function Status()
+    {
+        return $this->belongsTo(TicketStatus::class,'status');
+    }
 }

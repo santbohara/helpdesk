@@ -20,12 +20,13 @@ return new class extends Migration
             $table->uuid('topic_id')->index();
             $table->text('subject');
             $table->longText('description');
-            $table->integer('status');
+            $table->bigInteger('status');
             $table->text('ip');
             $table->text('user_agent');
             $table->timestamps();
 
             $table->foreign('topic_id')->references('id')->on('topics')->onDelete('cascade');
+            $table->foreign('status')->references('id')->on('ticket_statuses')->onDelete('cascade');
         });
     }
 
