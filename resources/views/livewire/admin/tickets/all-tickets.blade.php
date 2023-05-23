@@ -96,7 +96,7 @@
 
     @include('alert')
 
-    <div class="w-full realtive bg-white dark:bg-gray-800 relative shadow-md mb-6 my-3">
+    <div class="w-full bg-white dark:bg-gray-800 shadow-md mb-6 my-3">
 
         <x-loading-absolute wire:loading.flex wire:target="search, filter">Loading...</x-loading-absolute>
 

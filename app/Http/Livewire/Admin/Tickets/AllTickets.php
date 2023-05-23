@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Tickets;
 
 use App\Exports\Admin\QuestionsExport;
 use App\Models\Admin\Ticket;
+use App\Models\Admin\TicketStatus;
 use App\Models\Admin\Topic;
 use Illuminate\Http\Response;
 use Livewire\Component;
@@ -71,7 +72,7 @@ class AllTickets extends Component
         ->with('Topic')
         ->with('Status')
         ->orderBy($this->sortBy, $this->sortOrder)
-        ->paginate(25);
+        ->paginate(15);
 
         return view('livewire.admin.tickets.all-tickets', [
 
@@ -80,6 +81,8 @@ class AllTickets extends Component
             'topics' => Topic::whereActive(true)
                 ->orderBy('order')
                 ->get(),
+
+            'statuses' => TicketStatus::get()
         ]);
     }
 

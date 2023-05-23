@@ -49,7 +49,9 @@
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 >
                 <option value=""></option>
-                <option value="1">Pending</option>
+                @foreach ($statuses as $status)
+                    <option value="{{ $status->id }}">{{ $status->title }}</option>
+                @endforeach
             </select>
             @error('title')
                 <span class="text-sm text-red-500"></span>
@@ -78,6 +80,6 @@
         <x-btn-primary type="submit" wire:click="filter">
             <span>Filter</span>
         </x-btn-primary>
-        
+
     </form>
 </div>
