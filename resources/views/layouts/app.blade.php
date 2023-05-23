@@ -31,8 +31,6 @@
 
 <body class="flex h-screen overflow-hidden bg-gray-100 dark:bg-gray-900 text-gray-500">
 
-    @include('sweetalert::alert')
-
     <div id="top-loader" class="fixed z-40 top-0 left-0 w-full">
         <div style="width: 100%" class="absolute top-0 h-1 bg-transparent loader-blue"></div>
     </div>
@@ -52,6 +50,7 @@
     @stack('scripts')
     <script type="module">$(document).ready(function(){$('#top-loader').delay(600).hide(0);})</script>
     @livewireScripts
+    <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script><x-livewire-alert::scripts />
 </body>
 
 </html>

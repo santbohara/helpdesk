@@ -21,16 +21,16 @@
 
         <div class="mb-6 grow">
 
-            <div class="p-3 my-3 border dark:border-gray-700 bg-white dark:bg-gray-800">
+            <div class="my-3 border dark:border-gray-700 bg-white dark:bg-gray-800">
 
-                <div class="flex justify-between text-xs border-b dark:border-gray-700 pb-1">
+                <div class="flex justify-between text-xs border-b dark:border-gray-700">
 
-                    <div>
-                        <span class="text-gray-400 dark:text-gray-500"> 2023-05-06 12:21:15</span> | Reply by <span class="font-semibold">Sant Bohara</span>
+                    <div class="p-3">
+                        <span class="text-gray-400 dark:text-gray-500"> <i class="bi bi-clock"></i> 2023-05-06 12:21:15</span> | Reply by <span class="font-semibold">Sant Bohara</span>
                     </div>
                 </div>
 
-                <div class="my-6 space-y-2">
+                <div class="my-3 p-3 space-y-2">
 
                     <div>
                         To: {{ $ticket->email }}
@@ -48,7 +48,7 @@
 
             <div class="overflow-hidden mb-6">
 
-                <form action="">
+                <form wire:ignore>
                     <textarea class="hidden" name="content" id="markDownContent"></textarea>
 
                     <div class="bg-white dark:bg-gray-800 mb-3">
@@ -77,12 +77,14 @@
                     <ul>
                         <li><span class="font-medium dark:text-gray-400">Status</span></li>
                         <li>
-                            <select name="" class="p-0 ps-1 m-0 border-0 text-sm bg-transparent">
-                                @foreach($statuses as $status)
-                                    <option value="{{ $status->id }}" {{ $status->id == $ticket->Status->id ? 'selected' : '' }}> {{ $status->title}}</option>
-                                @endforeach
-                            </select>
-                            <a href="" class="text-blue-500">Update</a>
+                            <form wire:submit.prevent="updateStatus">
+                                <select wire:model="statusId" class="p-0 ps-1 m-0 border-0 text-sm bg-transparent">
+                                    @foreach($statuses as $status)
+                                        <option value="{{ $status->id }}"> {{ $status->title}}</option>
+                                    @endforeach
+                                </select>
+                                <button type="submit" class="text-blue-500">Update</button>
+                            </form>
                         </li>
                     </ul>
                 </div>

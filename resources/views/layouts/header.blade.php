@@ -65,10 +65,10 @@
                         </li>
                         <li class="pt-3 text-gray-200">
                             <span class="language-toggle">
-                                <a href="{{ route('changeLang', ['lang' => 'EN']) }}"
-                                    class="changeLang  {{ session()->get('locale') == 'EN' ? 'active' : '' }}">EN</a> |
-                                <a href="{{ route('changeLang', ['lang' => 'NP']) }}"
-                                    class="changeLang  {{ session()->get('locale') == 'NP' ? 'active' : '' }}">ने</a>
+                                <a href="{{ route('changeLang', ['lang' => 'en']) }}"
+                                    class="changeLang  {{ session()->get('locale') == 'en' ? 'active' : '' }}">EN</a> |
+                                <a href="{{ route('changeLang', ['lang' => 'np']) }}"
+                                    class="changeLang  {{ session()->get('locale') == 'np' ? 'active' : '' }}">ने</a>
                             </span>
                         </li>
                         <li class="pt-1 hidden">

@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Admin\Topics;
 
 use App\Models\Admin\Question;
 use Livewire\Component;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class ReorderQuestions extends Component
 {

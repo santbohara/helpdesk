@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class EditTopic extends Component
 {
@@ -107,7 +106,6 @@ class EditTopic extends Component
             $topic->save();
 
             session()->flash('success','Data saved successfully!');
-            Alert::toast('Data saved successfully!','success');
 
         } catch (\Exception $ex) {
             session()->flash('fail','Something goes wrong!! '.$ex->getMessage());

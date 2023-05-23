@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class TopicList extends Component
 {
@@ -83,7 +82,5 @@ class TopicList extends Component
         foreach($items as $item){
             Topic::whereId($item['value'])->update(['order' => $item['order']]);
         }
-
-        Alert::toast('Data saved successfully!','success');
     }
 }

@@ -73,7 +73,7 @@
                         <ul class="mt-2 list-chv">
                             @foreach ($frequentQuestions as $question)
                                 <li>
-                                    <a href="" class="hover:underline hover:text-blue-600">{{ __('questions.'.$question->id) }}</a>
+                                    <a href="{{ route('support.view',[$question->Topic->slug,$question->slug]) }}" class="hover:underline hover:text-blue-600">{{ __('questions.'.$question->id) }}</a>
                                 </li>
                             @endforeach
                         </ul>
