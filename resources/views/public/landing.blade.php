@@ -50,10 +50,10 @@
                                         <img class="w-16 h-16" src="{{ asset('storage/'.$topic->icon) }}" alt="QR">
                                         <div class="p-5">
                                             <h3 class="text-xl font-bold text-red-500">
-                                                {{ $topic->title }}
+                                                {{ __('trans-topic.'.$topic->id) }}
                                             </h3>
                                             <p class="mt-3 font-light text-gray-500">
-                                                {{ $topic->desc }}
+                                                {{ __('trans-topic-desc.'.$topic->id) }}
                                             </p>
                                         </div>
                                     </div>
@@ -71,22 +71,11 @@
                     <div class="p-4 bg-gray-200 rounded-md mb-3">
                         <span class="font-bold">{{ __('messages.quick_title') }}</span>
                         <ul class="mt-2 list-chv">
-                            <li>
-                                <a href="" class="hover:underline hover:text-blue-600">How to open online
-                                    account?</a>
-                            </li>
-                            <li>
-                                <a href="" class="hover:underline hover:text-blue-600">How to register
-                                    mobile banking?</a>
-                            </li>
-                            <li>
-                                <a href="" class="hover:underline hover:text-blue-600">How to activate
-                                    online transaction in my card?</a>
-                            </li>
-                            <li>
-                                <a href="" class="hover:underline hover:text-blue-600">How to open fixed
-                                    deposit?</a>
-                            </li>
+                            @foreach ($frequentQuestions as $question)
+                                <li>
+                                    <a href="" class="hover:underline hover:text-blue-600">{{ __('questions.'.$question->id) }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
 

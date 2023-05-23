@@ -1,5 +1,5 @@
 @php
-    $page_title = $topic->title;
+    $page_title = __('trans-topic.'.$topic->id);
     $topic_slug = $topic->slug;
 @endphp
 <x-public-layout>
@@ -16,10 +16,10 @@
                     <img class="w-10 h-10" src="{{ asset('icons/account.png') }}" alt="Accounts">
                     <div class="pl-2">
                         <h3 class="text-xl font-bold text-red-500">
-                            {{ $topic->title }}
+                            {{ __('trans-topic.'.$topic->id) }}
                         </h3>
                         <p class="font-light text-gray-500">
-                            {{ $topic->desc }}
+                            {{ __('trans-topic-desc.'.$topic->id) }}
                         </p>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                             <li class="flex flex-row my-2  text-red-500">
                                 <i class="bi bi-question-circle-fill"></i>
                                 <a href="{{ route('support.view',[$topic->slug,$question->slug]) }}" class="pl-2 font-bold hover:underline hover:text-red-700">
-                                    {{ $question->title }}
+                                    {{ __('questions.'.$question->id) }}
                                 </a>
                             </li>
                         @empty

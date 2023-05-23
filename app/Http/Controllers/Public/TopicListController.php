@@ -13,7 +13,7 @@ class TopicListController extends Controller
     {
         $topic = Topic::select('id','title','desc','slug')->whereSlug($slug)->whereActive(true)->firstOrFail();
 
-        $questions = Question::where('topic_id',$topic->id)->whereActive(true)->orderBy('order')->get(['title','slug','topic_id']);
+        $questions = Question::where('topic_id',$topic->id)->whereActive(true)->orderBy('order')->get(['id','title','slug','topic_id']);
 
         return view('public.topic')->with([
             'questions' => $questions,
@@ -24,7 +24,18 @@ class TopicListController extends Controller
     public function view($slug,$slug2)
     {
         $question = Question::
-        join('topics','topics.id','questions.topic_id')
+        select(
+            'topics.id as topic_id',
+            'topics.title as topic_title',
+            'topics.title_unicode as topic_title_unicode',
+            'topics.slug as topic_slug',
+            'questions.id as question_id',
+            'questions.title as question_title',
+            'questions.title_unicode as question_title_unicode',
+            'questions.answer as answer',
+            'questions.updated_at as updated_at',
+        )
+        ->join('topics','topics.id','questions.topic_id')
         ->where('topics.slug',$slug)
         ->where('questions.slug',$slug2)
         ->where('questions.active',true)

@@ -1,5 +1,5 @@
 @php
-    $page_title = $question->topic->title;
+    $page_title = __('trans-topic.'.$question->topic_id);
 @endphp
 <x-public-layout>
 
@@ -16,7 +16,7 @@
                     <div class="flex items-center font-bold text-red-500">
                         <i class="bi bi-question-circle-fill"></i>
                         <span class="pl-2 text-lg">
-                            {{ $question->title }}
+                            {{ __('questions.'.$question->question_id) }}
                         </span>
                     </div>
 
@@ -25,7 +25,7 @@
                             {{ __('messages.modified_date') }}: {{ date_format($question->updated_at,'d-M-Y') }}
                         </p>
                         <div class="flex gap-2">
-                            <a href="{{ route('support.topic',$question->topic->slug) }}" class="text-sm hover:text-blue-600">
+                            <a href="{{ route('support.topic',$question->topic_slug) }}" class="text-sm hover:text-blue-600">
                                 <i class="bi bi-arrow-return-left"></i>
                                 {{ __('messages.back') }}
                             </a>
