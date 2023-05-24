@@ -36,7 +36,8 @@
     {
         let html = getQuillHtml();
         console.log ( html );
-        document.getElementById('markDownContent').innerText = html;
+        // document.getElementById('markDownContent').innerText = html;
+        document.getElementById('markDownContent').value = html;
     }
 
     updateHtmlOutput()

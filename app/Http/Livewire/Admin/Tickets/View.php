@@ -12,7 +12,7 @@ class View extends Component
 {
     use LivewireAlert;
 
-    public $ticket, $statusId;
+    public $ticket, $statusId, $replyContent;
 
     public function mount($id)
     {
@@ -50,5 +50,10 @@ class View extends Component
 
             $this->alert('success', 'Status changed!');
         }
+    }
+
+    public function sendReply()
+    {
+        dd($this->replyContent);
     }
 }
