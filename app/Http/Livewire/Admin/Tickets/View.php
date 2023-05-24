@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Tickets;
 
 use App\Models\Admin\Ticket;
 use App\Models\Admin\TicketStatus;
+use App\Models\TicketStatusHistory;
 use Livewire\Component;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
@@ -23,7 +24,8 @@ class View extends Component
     {
         return view('livewire.admin.tickets.view',[
             'ticket'   => $this->ticket,
-            'statuses' => TicketStatus::get()
+            'statuses' => TicketStatus::get(),
+            'statusHistory' => TicketStatusHistory::whereTicketId($this->ticket->id)->orderBy('created_at','DESC')->get(),
         ]);
     }
 
@@ -33,9 +35,17 @@ class View extends Component
 
         //Only update if status is not same as existing
         if($this->statusId != $data->status){
-            
+
             $data->status = $this->statusId;
 
+            //Keep the seperate record of the change
+            $statusTitle = TicketStatus::whereId($data->status)->value('title');
+            TicketStatusHistory::create([
+                'ticket_id' => $data->id,
+                'details' => "Status changed to : ".$statusTitle." by ".\Auth::user()->username,
+            ]);
+
+            //Update Status
             $data->save();
 
             $this->alert('success', 'Status changed!');

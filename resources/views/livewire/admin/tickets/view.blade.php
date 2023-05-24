@@ -83,7 +83,10 @@
                                         <option value="{{ $status->id }}"> {{ $status->title}}</option>
                                     @endforeach
                                 </select>
-                                <button type="submit" class="text-blue-500">Update</button>
+                                <button type="submit" class="text-blue-500">
+                                    <span wire:target="updateStatus" wire:loading.remove>Update</span>
+                                </button>
+                                <span wire:target="updateStatus" wire:loading>Updating...</span>
                             </form>
                         </li>
                     </ul>
@@ -155,15 +158,15 @@
                     </button>
                 </h2>
                 <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
-                    <div class="p-5 space-y-3 text-xs bg-white dark:bg-gray-800 border border-gray-200 border-t-0 dark:border-gray-700">
-                        <ul>
-                            <li><i class="bi bi-clock"></i> 2023-01-01 13:01:05</li>
-                            <li class="ps-4">Something changed by Sant</li>
-                        </ul>
-                        <ul>
-                            <li><i class="bi bi-clock"></i> 2023-01-01 13:01:05</li>
-                            <li class="ps-4">Something changed by Sant</li>
-                        </ul>
+                    <div class="p-3 space-y-3 text-xs bg-white dark:bg-gray-800 border border-gray-200 border-t-0 dark:border-gray-700">
+                        @forelse ($statusHistory as $row)
+                            <ul>
+                                <li><i class="bi bi-clock"></i> {{ $row->created_at }}</li>
+                                <li class="ps-4">{{ $row->details }}</li>
+                            </ul>
+                        @empty
+                            No any update found.
+                        @endforelse
                     </div>
                 </div>
             </div>
