@@ -71,6 +71,7 @@ class AllTickets extends Component
         $query = $query->search('ticket_id',$this->search)
         ->with('Topic')
         ->with('Status')
+        ->withCount('Reply')
         ->orderBy($this->sortBy, $this->sortOrder)
         ->paginate(15);
 

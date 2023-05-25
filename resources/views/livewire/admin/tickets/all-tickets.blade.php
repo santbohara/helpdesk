@@ -160,7 +160,7 @@
                                 </span>
                             </td>
                             <td class="px-4 py-3">
-                                <i class="bi bi-reply-fill"></i> Replied
+                                @if($ticket->reply_count > 0 )  <i class="bi bi-reply-fill"></i>  Replied @endif
                             </td>
                         </tr>
                     @empty

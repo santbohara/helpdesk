@@ -2,6 +2,7 @@
 
 namespace App\Models\Admin;
 
+use App\Models\TicketResponse;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -33,5 +34,10 @@ class Ticket extends Model
     public function Status()
     {
         return $this->belongsTo(TicketStatus::class,'status');
+    }
+
+    public function Reply()
+    {
+        return $this->hasMany(TicketResponse::class,'ticket_id');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Tickets;
 
 use App\Models\Admin\Ticket;
 use App\Models\Admin\TicketStatus;
+use App\Models\TicketResponse;
 use App\Models\TicketStatusHistory;
 use Livewire\Component;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -24,6 +25,7 @@ class View extends Component
     {
         return view('livewire.admin.tickets.view',[
             'ticket'   => $this->ticket,
+            'responses'   => TicketResponse::where('ticket_id',$this->ticket->id)->get(),
             'statuses' => TicketStatus::get(),
             'statusHistory' => TicketStatusHistory::whereTicketId($this->ticket->id)->orderBy('created_at','DESC')->get(),
         ]);

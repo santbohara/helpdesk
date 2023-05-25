@@ -13,11 +13,11 @@
 
     </div>
 
-    @include('alert')
-
     <div class="md:flex md:space-x-3">
 
         <div class="mb-6 grow max-w-7xl">
+
+            @include('alert')
 
             {{-- Subject --}}
             <div class="my-3 flex justify-between">
@@ -51,45 +51,51 @@
             </div>
 
             {{-- Response Block --}}
-            <div class="my-3 border dark:border-gray-700 bg-white dark:bg-gray-800">
+            <div class="my-3">
+                <p class="text-xs"> <i class="bi bi-arrow-return-right"></i> {{ count($responses) }} Reply found.</p>
+                @foreach ($responses as $response)
+                    <div class="my-3 ms-3 border dark:border-gray-700 bg-white dark:bg-gray-800">
 
-                <div class="flex justify-between text-xs border-b dark:border-gray-700">
+                        <div class="flex justify-between text-xs border-b dark:border-gray-700">
 
-                    <div class="p-3">
-                        <span class="text-gray-400 dark:text-gray-500"> <i class="bi bi-clock"></i> 2023-05-06 12:21:15</span> | Reply by <span class="font-semibold">Sant Bohara</span>
+                            <div class="p-3">
+                                <span class="text-gray-400 dark:text-gray-500">
+                                    <i class="bi bi-clock"></i> {{ $response->created_at }}
+                                </span>
+                                | Reply by <span class="font-semibold">{{ $response->reply_by }}</span>
+                            </div>
+                        </div>
+
+                        <div class="my-3 px-3 space-y-2">
+
+                            <div>
+                                <span class="dark:text-gray-400 font-semibold"> To: </span> {{ $ticket->email }}
+                            </div>
+
+                            <div class="p-3 rounded bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+                                {!! $response->details !!}
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="my-3 px-3 space-y-2">
-
-                    <div>
-                        <span class="dark:text-gray-400 font-semibold"> To: </span> {{ $ticket->email }}
-                    </div>
-
-                    <div class="p-3 rounded bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
-                        Dear Sir/Madam,
-
-                        Please visit any neareast branch for this query.
-
-                        Thanks.
-                    </div>
-                </div>
+                @endforeach
             </div>
 
             {{-- Reply Textbox --}}
-            <div class="overflow-hidden mb-6">
+            <div class="overflow-hidden mb-6 relative">
+                @if ($errors->has('details'))
+                    <p class="text-red-600 dark:text-red-500 my-2">
+                        {{ $errors->first('details') }}
+                    </p>
+                @endif
+                <form action="{{ route('ticket.reply.process',$ticket->id) }}" id="sendReply" method="POST" wire:ignore>
+                    @csrf
+                    <textarea class="hidden" name="details" id="markDownContent"></textarea>
 
-                <form wire:submit.prevent="sendReply" wire:ignore>
-                    <textarea class="hidden" id="markDownContent"></textarea>
-
-                    <div class="bg-white dark:bg-gray-800 mb-3">
-                        <div id="editor-container" class="bg-white dark:bg-gray-800"></div>
+                    <div class="bg-white dark:bg-gray-800 mb-3 @if($errors->has('details')) border border-red-600 dark:border-red-500 @endif">
+                        <div id="editor-container" class="bg-white dark:bg-gray-800">{!! old('details') !!}</div>
                     </div>
-                    
-                    <x-btn-primary type="submit">
-                        <span wire:target="sendReply" wire:loading.remove>Send Reply</span>
-		                <span wire:target="sendReply" wire:loading>Sending...</span>
-                    </x-btn-primary>
+
+                    <x-btn-primary type="submit" id="btn-submit">Send Reply </x-btn-primary>
                 </form>
             </div>
         </div>
@@ -228,6 +234,22 @@
         </div>
     </div>
 
+    {{-- Adding Texteditor --}}
     <x-quill-js></x-quill-js>
+
+    {{-- Disbaling Submit button on clicked  --}}
+    <script type="module">
+        document.querySelector("#sendReply").addEventListener("submit", function(e){
+            document.getElementById("btn-submit").disabled=true;
+            document.getElementById('btn-submit').innerHTML = `<x-loading class="dark:text-gray-600 fill-gray-600 dark:fill-gray-300"></x-loading>`;
+        });
+    </script>
+
+    {{-- Scorlling back to error section, for easy view --}}
+    @if($errors->has('details'))
+        <script type="module">
+            document.getElementById("editor-container").scrollIntoView({ behavior: 'smooth' });
+        </script>
+    @endif
 </div>
 
