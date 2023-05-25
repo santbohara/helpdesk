@@ -30,7 +30,7 @@
                         </svg>
                     </div>
                     <input wire:model="search" type="text" id="simple-search"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2 dark:bg-gray-800 dark:border-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 p-2 dark:bg-gray-800 dark:border-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
                         placeholder="Search Title" required="">
                 </div>
 
@@ -41,7 +41,7 @@
 
             <div class="flex self-center">
                 @if($topic || $active)
-                    <a href="#" wire:click="refresh" class="text-blue-500 hover:underline">
+                    <a href="#" wire:click="refresh" class="text-indigo-500 hover:underline">
                         <i class="bi bi-x-circle"></i> Clear Filter
                     </a>
                 @endif
@@ -177,7 +177,7 @@
                                 </td>
 
                                 <td class="px-4 py-3">
-                                    <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                                    <span class="bg-blue-100 text-indigo-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
                                         0
                                     </span>
                                 </td>
@@ -188,14 +188,14 @@
 
                                     <ul class="flex flex-row justify-center space-x-3">
                                         <li>
-                                            <a href="{{ route('questions.view',$question->id) }}"  data-tooltip-target="tooltip-view" class="text-blue-500 hover:text-blue-700">
+                                            <a href="{{ route('questions.view',$question->id) }}"  data-tooltip-target="tooltip-view" class="text-indigo-500 hover:text-indigo-700">
                                                 <i class="bi bi-info-circle"></i>
                                             </a>
                                             <x-tooltip id="tooltip-view">View</x-tooltip>
                                         </li>
                                         <li>
                                             @can('edit')
-                                                <a href="{{ route('questions.edit',$question->id) }}" data-tooltip-target="tooltip-edit" class="text-blue-500 hover:text-blue-700">
+                                                <a href="{{ route('questions.edit',$question->id) }}" data-tooltip-target="tooltip-edit" class="text-indigo-500 hover:text-indigo-700">
                                                     <i class="bi bi-pencil-square"></i>
                                                 </a>
                                                 <x-tooltip id="tooltip-edit">Edit</x-tooltip>

@@ -74,7 +74,7 @@
                         <li class="pt-1 hidden">
                             <button id="theme-toggle" type="button"
                                 class="text-gray-100 dark:text-gray-300 hover:text-gray-700 hover:bg-gray-300 border-gray-300 dark:border-gray-700 dark:hover:text-gray-300 dark:hover:bg-gray-700
-                                focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 bg-transparent rounded-lg px-3 py-2">
+                                focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-500 bg-transparent rounded-lg px-3 py-2">
                                 <i id="theme-toggle-dark-icon" class="bi bi-moon-fill hidden"></i>
                                 <i id="theme-toggle-light-icon" class="bi bi-sun hidden"></i>
                             </button>

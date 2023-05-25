@@ -81,43 +81,43 @@
                             <th scope="col" class="px-4 py-3">
                                 <div class="flex items-center gap-4">
                                     Name
-                                    <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'name' ? 'text-blue-500' : null }}" wire:click="sortBy('name')"></i>
+                                    <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'name' ? 'text-indigo-500' : null }}" wire:click="sortBy('name')"></i>
                                 </div>
                             </th>
                             <th scope="col" class="px-4 py-3">
                                 <div class="flex items-center gap-4">
                                     Username
-                                    <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'username' ? 'text-blue-500' : null }}" wire:click="sortBy('username')"></i>
+                                    <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'username' ? 'text-indigo-500' : null }}" wire:click="sortBy('username')"></i>
                                 </div>
                             </th>
                             <th scope="col" class="px-4 py-3">
                                 <div class="flex items-center gap-4">
                                     Email
-                                    <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'email' ? 'text-blue-500' : null }}" wire:click="sortBy('email')"></i>
+                                    <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'email' ? 'text-indigo-500' : null }}" wire:click="sortBy('email')"></i>
                                 </div>
                             </th>
                             <th scope="col" class="px-4 py-3">
                                 <div class="flex items-center gap-4">
                                     Mobile
-                                    <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'mobile' ? 'text-blue-500' : null }}" wire:click="sortBy('mobile')"></i>
+                                    <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'mobile' ? 'text-indigo-500' : null }}" wire:click="sortBy('mobile')"></i>
                                 </div>
                             </th>
                             <th scope="col" class="px-4 py-3">
                                 <div class="flex items-center gap-4">
                                     Role
-                                    <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'role_id' ? 'text-blue-500' : null }}" wire:click="sortBy('role_id')"></i>
+                                    <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'role_id' ? 'text-indigo-500' : null }}" wire:click="sortBy('role_id')"></i>
                                 </div>
                             </th>
                             <th scope="col" class="px-4 py-3">
                                 <div class="flex items-center gap-4">
                                     Status
-                                    <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'active' ? 'text-blue-500' : null }}" wire:click="sortBy('active')"></i>
+                                    <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'active' ? 'text-indigo-500' : null }}" wire:click="sortBy('active')"></i>
                                 </div>
                             </th>
                             <th scope="col" class="px-4 py-3">
                                 <div class="flex items-center gap-4">
                                     Last login
-                                    <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'last_login' ? 'text-blue-500' : null }}" wire:click="sortBy('last_login')"></i>
+                                    <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'last_login' ? 'text-indigo-500' : null }}" wire:click="sortBy('last_login')"></i>
                                 </div>
                             </th>
                             <th scope="col" class="px-4 py-3">
@@ -154,7 +154,7 @@
                                     @can('edit')
                                             <a
                                                 href="{{ route('edit.user',$user->id) }}"
-                                                class="text-blue-500"
+                                                class="text-indigo-500"
                                                 ><i class="bi bi-pencil-square"></i>
                                             </a>
                                     @endcan

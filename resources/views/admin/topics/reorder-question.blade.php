@@ -9,7 +9,7 @@
         </div>
 
         {{-- Right Quick Action --}}
-        <a href="{{ route('topic.questions') }}" class="hover:text-blue-500">
+        <a href="{{ route('topic.questions') }}" class="hover:text-indigo-500">
             <i class="bi bi-arrow-return-left"></i> Go Back
         </a>
 

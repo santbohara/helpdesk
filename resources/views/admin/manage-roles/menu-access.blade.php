@@ -10,7 +10,7 @@
 
         {{-- Right Quick Action --}}
         <div>
-            <a href="{{ route('ManageRolesController@index') }}" class="hover:text-blue-500">
+            <a href="{{ route('ManageRolesController@index') }}" class="hover:text-indigo-500">
                 <i class="bi bi-arrow-return-left"></i> Go Back
             </a>
         </div>
@@ -62,7 +62,7 @@
 
                                 </td>
                                 <td class="px-6 pt-3">
-                                    <a href="javascript:void(0);" class="text-blue-500 select-all-btn" data-class="select-{{ $row->id }}">
+                                    <a href="javascript:void(0);" class="text-indigo-500 select-all-btn" data-class="select-{{ $row->id }}">
                                         <small>Select All</small>
                                     </a>
                                     @foreach ($row->menus as $item)
@@ -70,7 +70,7 @@
                                             <input id="checkbox-{{ $item->id }}" type="checkbox" name="menu_id[]"
                                                 value="{{ $item->id }}"
                                                 class="select-{{ $row->id }} w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded
-                                                focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                                                focus:ring-indigo-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                                                 @if ($Access->RoleMenuAccess($item->id)) checked @endif
                                                 >
                                             <label for="checkbox-{{ $item->id }}"

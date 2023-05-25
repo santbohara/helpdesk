@@ -77,7 +77,7 @@
                             <td class="px-4 py-3">
                                 @if($row->name != 'Admin')
                                     @can('edit')
-                                        <a href="{{ route('MenuAccessController@index',$row->id) }}" class="text-blue-500 hover:underline">
+                                        <a href="{{ route('MenuAccessController@index',$row->id) }}" class="text-indigo-500 hover:underline">
                                             <i class="bi bi-pencil-square"></i> Edit
                                         </a>
                                     @endcan
@@ -88,7 +88,7 @@
                                     @can('edit')
                                         <a href="#" data-drawer-target="edit-permission"
                                             data-drawer-show="edit-permission" data-drawer-placement="right"
-                                            aria-controls="edit-permission" class="text-blue-500 hover:underline editPermission"
+                                            aria-controls="edit-permission" class="text-indigo-500 hover:underline editPermission"
                                             data-id="{{ $row->id }}">
                                             <i class="bi bi-pencil-square"></i> Edit
                                         </a>

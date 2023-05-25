@@ -23,7 +23,7 @@
             <div class="my-3 flex justify-between">
                 <div><i class="bi bi-chat"></i> <span>Conversation History</span></div>
                 <ul class="flex">
-                    <li><a href="{{ route('ticket.all') }}" class="mx-2 text-blue-500"> <i class="bi bi-arrow-return-left"></i> Back</a></li>
+                    <li><a href="{{ route('ticket.all') }}" class="mx-2 text-indigo-500"> <i class="bi bi-arrow-return-left"></i> Back</a></li>
                 </ul>
             </div>
 
@@ -130,7 +130,7 @@
                                             <option value="{{ $status->id }}"> {{ $status->title}}</option>
                                         @endforeach
                                     </select>
-                                    <button type="submit" class="text-blue-500">
+                                    <button type="submit" class="text-indigo-500">
                                         <span wire:target="updateStatus" wire:loading.remove>Update</span>
                                     </button>
                                     <span wire:target="updateStatus" wire:loading>Updating...</span>

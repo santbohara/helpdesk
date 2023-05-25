@@ -23,7 +23,7 @@
 
                     <input type="text" id="simple-search"
                         class="bg-gray-50 border border-gray-300 text-gray-900
-                            rounded-3xl focus:ring-blue-500 focus:border-blue-500
+                            rounded-3xl focus:ring-indigo-500 focus:border-indigo-500
                             block w-full pl-10 p-3.5"
                         placeholder="{{ __('messages.search') }}" required>
                 </div>

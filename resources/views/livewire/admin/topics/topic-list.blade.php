@@ -134,7 +134,7 @@
                                 </td>
 
                                 <td class="px-4 py-3">
-                                    <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                                    <span class="bg-blue-100 text-indigo-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
                                         {{ $topic->questions_count }}
                                     </span>
                                 </td>
@@ -150,7 +150,7 @@
                                 <td class="px-4 py-3">
                                     @can('edit')
                                         <a href="{{ route('topic.edit',$topic->id) }}"
-                                            class="block py-2 px-4 text-blue-500 hover:underline">
+                                            class="block py-2 px-4 text-indigo-500 hover:underline">
                                             <i class="bi bi-pencil-square"></i> Edit
                                         </a>
                                     @endcan

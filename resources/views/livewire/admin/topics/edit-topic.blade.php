@@ -54,7 +54,7 @@
                         <div class="grow">
                             <x-input-label>Icon</x-input-label>
                             <x-file-input type="file" wire:model="icon"></x-file-input>
-                            <div wire:loading wire:target="icon" class="text-blue-500">Uploading...</div>
+                            <div wire:loading wire:target="icon" class="text-indigo-500">Uploading...</div>
                             <small>Supported Format : jpg/jpeg | Max file size: 500KB</small>
                         </div>
                         @error('icon') <span class="text-sm text-red-500">{{ $message }}</span> @enderror

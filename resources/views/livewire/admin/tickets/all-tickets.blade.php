@@ -41,7 +41,7 @@
 
             <div class="flex self-center">
                 @if($filter)
-                    <a href="#" wire:click="refresh" class="text-blue-500 hover:underline">
+                    <a href="#" wire:click="refresh" class="text-indigo-500 hover:underline">
                         <i class="bi bi-x-circle"></i> Clear Filter
                     </a>
                 @endif
@@ -111,25 +111,25 @@
                         <th scope="col" class="px-4 py-3">
                             <div class="flex items-center gap-4">
                                 Subject
-                                <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'ticket_id' ? 'text-blue-500' : null }}" wire:click="sortBy('ticket_id')"></i>
+                                <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'ticket_id' ? 'text-indigo-500' : null }}" wire:click="sortBy('ticket_id')"></i>
                             </div>
                         </th>
                         <th scope="col" class="px-4 py-3">
                             <div class="flex items-center gap-4">
                                 Customer
-                                <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'topic_id' ? 'text-blue-500' : null }}" wire:click="sortBy('topic_id')"></i>
+                                <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'topic_id' ? 'text-indigo-500' : null }}" wire:click="sortBy('topic_id')"></i>
                             </div>
                         </th>
                         <th scope="col" class="px-4 py-3">
                             <div class="flex items-center gap-4">
                                 Ticket Date
-                                <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'created_at' ? 'text-blue-500' : null }}" wire:click="sortBy('created_at')"></i>
+                                <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'created_at' ? 'text-indigo-500' : null }}" wire:click="sortBy('created_at')"></i>
                             </div>
                         </th>
                         <th scope="col" class="px-4 py-3">
                             <div class="flex items-center gap-4">
                                 Status
-                                <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'status' ? 'text-blue-500' : null }}" wire:click="sortBy('status')"></i>
+                                <i class="bi bi-arrow-down-up hover:cursor-pointer {{ $sortBy === 'status' ? 'text-indigo-500' : null }}" wire:click="sortBy('status')"></i>
                             </div>
                         </th>
                         <th scope="col" class="px-4 py-3"></th>
@@ -142,7 +142,7 @@
                         <tr class="border-b dark:border-gray-700">
                             <td class="px-4 py-3">{{ $loop->iteration }}</td>
                             <td class="px-4 py-3">
-                                <a href="{{ route('ticket.view',$ticket->id) }}" class="text-blue-500">{{ $ticket->subject }}</a>
+                                <a href="{{ route('ticket.view',$ticket->id) }}" class="text-indigo-500">{{ $ticket->subject }}</a>
                                 <div>
                                     {{ $ticket->Topic->title }}
                                 </div>

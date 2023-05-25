@@ -5,7 +5,7 @@
         {{-- Mobile View --}}
         <div class="flex justify-between flex-1 sm:hidden">
             @if ($paginator->onFirstPage())
-                <span class="relative rounded-md inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-blue-700 dark:text-gray-400 bg-blue-100 border border-gray-300 dark:bg-gray-700 dark:border-gray-700">
+                <span class="relative rounded-md inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-indigo-700 dark:text-gray-400 bg-blue-100 border border-gray-300 dark:bg-gray-700 dark:border-gray-700">
                     {!! __('pagination.previous') !!}
                 </span>
             @else
@@ -19,7 +19,7 @@
                     {!! __('pagination.next') !!}
                 </a>
             @else
-                <span class="relative rounded-md inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-blue-700 dark:text-gray-400 bg-blue-100 border border-gray-300 dark:bg-gray-700 dark:border-gray-700">
+                <span class="relative rounded-md inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-indigo-700 dark:text-gray-400 bg-blue-100 border border-gray-300 dark:bg-gray-700 dark:border-gray-700">
                     {!! __('pagination.next') !!}
                 </span>
             @endif
@@ -78,7 +78,7 @@
                             @foreach ($element as $page => $url)
                                 @if ($page == $paginator->currentPage())
                                     <span aria-current="page">
-                                        <span class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-blue-700 dark:text-gray-400 bg-blue-100 border border-gray-300 dark:bg-gray-700 dark:border-gray-700">{{ $page }}</span>
+                                        <span class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-indigo-700 dark:text-gray-400 bg-blue-100 border border-gray-300 dark:bg-gray-700 dark:border-gray-700">{{ $page }}</span>
                                     </span>
                                 @else
                                     <a wire:click="gotoPage('{{$page}}')" wire:loading.attr="disabled" class="relative cursor-pointer inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 hover:bg-gray-200 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white transition ease-in-out duration-150" aria-label="{{ __('Go to page :page', ['page' => $page]) }}">

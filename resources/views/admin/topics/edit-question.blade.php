@@ -9,7 +9,7 @@
         </div>
 
         {{-- Right Quick Action --}}
-        <a href="{{ route('topic.questions') }}" class="hover:text-blue-500">
+        <a href="{{ route('topic.questions') }}" class="hover:text-indigo-500">
             <i class="bi bi-arrow-return-left"></i> Go Back
         </a>
 
@@ -51,7 +51,7 @@
                         {{-- <div class="">
                             <x-input-label>Topics</x-input-label>
                             <select id="active" name="topic"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
                                 required>
                                 <option value=""></option>
                                 @foreach ($topics as $topic)
