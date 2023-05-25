@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Tickets;
 
 use App\Exports\Admin\QuestionsExport;
+use App\Exports\Admin\TicketsExport;
 use App\Models\Admin\Ticket;
 use App\Models\Admin\TicketStatus;
 use App\Models\Admin\Topic;
@@ -106,7 +107,7 @@ class AllTickets extends Component
     {
         abort_if(!in_array($type,['xlsx']), Response::HTTP_FORBIDDEN);
 
-        return Excel::download(new QuestionsExport, 'Export.'.$type);
+        return Excel::download(new TicketsExport, 'Export.'.$type);
     }
 
     public function filter()

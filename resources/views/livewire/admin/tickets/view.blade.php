@@ -24,7 +24,6 @@
                 <div><i class="bi bi-chat"></i> <span>Conversation History</span></div>
                 <ul class="flex">
                     <li><a href="{{ route('ticket.all') }}" class="mx-2 text-blue-500"> <i class="bi bi-arrow-return-left"></i> Back</a></li>
-                    <li><a href="#" class="mx-2 text-blue-500"> <i class="bi bi-printer"></i> Print</a></li>
                 </ul>
             </div>
 
