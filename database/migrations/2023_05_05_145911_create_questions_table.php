@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('title_unicode');
             $table->text('slug');
             $table->boolean('active');
-            $table->integer('views')->nullable();;
+            $table->integer('views')->default('0');
             $table->longText('answer')->nullable();;
             $table->string('created_by');
             $table->timestamps();

@@ -21,8 +21,9 @@
                     </div>
 
                     <div class="flex items-center justify-between">
-                        <p class="text-xs text-gray-500">
+                        <p class="flex justify-start text-xs gap-x-3 text-gray-500">
                             {{ __('messages.modified_date') }}: {{ date_format($question->updated_at,'d-M-Y') }}
+                            <span> <i class="bi bi-eye-fill"></i> {{ $question->views }}</span>
                         </p>
                         <div class="flex gap-2">
                             <a href="{{ route('support.topic',$question->topic_slug) }}" class="text-sm hover:text-blue-600">

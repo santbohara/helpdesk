@@ -25,7 +25,7 @@
                     <span><i class="bi bi-calendar-date"></i> Added Date : {{ $question->created_at }}</span>
                 </div>
                 <div>
-                    <i class="bi bi-eye"></i> Views: 150
+                    <i class="bi bi-eye"></i> Views: {{ $question->views }}
                 </div>
             </div>
         </div>
