@@ -101,7 +101,7 @@ class Pending extends Component
     {
         abort_if(!in_array($type,['xlsx']), Response::HTTP_FORBIDDEN);
 
-        return Excel::download(new TicketsExport, 'Export.'.$type);
+        return Excel::download(new TicketsExport(1), 'Export.'.$type);
     }
 
     public function filter()

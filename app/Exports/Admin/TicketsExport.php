@@ -14,6 +14,13 @@ class TicketsExport implements FromCollection, WithHeadings, WithMapping, WithSt
 {
     use Exportable;
 
+    private $status;
+    
+    public function __construct($status)
+    {
+        $this->status    = $status;
+    }
+
     private $columns = [
         'Ticket ID',
         'Customer Name',
@@ -58,7 +65,13 @@ class TicketsExport implements FromCollection, WithHeadings, WithMapping, WithSt
 
     public function collection()
     {
-        return Ticket::select(
+        $result = Ticket::query();
+
+        $result->when($this->status,function($result){
+            $result = $result->where('status',$this->status);
+        });
+        
+        $result = $result->select(
             'ticket_id',
             'name',
             'account_number',
@@ -69,6 +82,8 @@ class TicketsExport implements FromCollection, WithHeadings, WithMapping, WithSt
             'description',
             'status',
             'created_at')
-            ->get();
+        ->get();
+
+        return $result;
     }
 }

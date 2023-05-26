@@ -107,7 +107,7 @@ class AllTickets extends Component
     {
         abort_if(!in_array($type,['xlsx']), Response::HTTP_FORBIDDEN);
 
-        return Excel::download(new TicketsExport, 'Export.'.$type);
+        return Excel::download(new TicketsExport(null), 'Export.'.$type);
     }
 
     public function filter()
