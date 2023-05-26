@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="my-3 md:w-2/3">
-                    <livewire:raise-ticket />
+                    <livewire:public.raise-ticket />
                 </div>
             </div>
         </div>

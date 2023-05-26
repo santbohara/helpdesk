@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Public;
 
 use App\Helpers\GenerateTicketID;
 use App\Models\Admin\Ticket;
@@ -37,7 +37,7 @@ class RaiseTicket extends Component
 
     public function render()
     {
-        return view('livewire.raise-ticket',[
+        return view('livewire.public.raise-ticket',[
             'topics' => Topic::whereActive(true)->orderBy('order')->get()
         ]);
     }

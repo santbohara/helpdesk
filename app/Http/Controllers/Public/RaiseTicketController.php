@@ -13,7 +13,7 @@ class RaiseTicketController extends Controller
      */
     public function index()
     {
-        return view('raise-tickets.index');
+        return view('public.raise-ticket');
     }
 
     /**
