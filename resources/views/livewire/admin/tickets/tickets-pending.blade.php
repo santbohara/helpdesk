@@ -142,7 +142,7 @@
                         <tr class="border-b dark:border-gray-700">
                             <td class="px-4 py-3">{{ $loop->iteration }}</td>
                             <td class="px-4 py-3">
-                                <a href="{{ route('ticket.view',$ticket->id) }}" class="text-indigo-500">{{ $ticket->subject }}</a>
+                                <a href="{{ route('ticket.pending.view',$ticket->id) }}" class="text-indigo-500">{{ $ticket->subject }}</a>
                                 <div>
                                     {{ $ticket->Topic->title }}
                                 </div>

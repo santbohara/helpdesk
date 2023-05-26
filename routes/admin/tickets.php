@@ -17,7 +17,11 @@ Route::group(['middleware' => 'permission:edit'], function () {
 //Only for list permission
 Route::group(['middleware' => 'permission:list'], function () {
 
+    //Pendings
     Route::get('pending', Pending::class)->name('ticket.pending.index');
+    Route::get('pending/{id}', View::class)->name('ticket.pending.view');
+
+    //All Tickets
     Route::get('all-tickets', AllTickets::class)->name('ticket.all');
     Route::get('all-tickets/{id}', View::class)->name('ticket.view');
 });

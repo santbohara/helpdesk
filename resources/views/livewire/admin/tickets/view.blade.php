@@ -1,3 +1,15 @@
+@php
+    $allTickets = Request::is('*all*'); 
+    $pending = Request::is('*pending*'); 
+
+    if($allTickets == true){
+        $returnUrl = 'ticket.all';
+    }elseif($pending == true){
+        $returnUrl = 'ticket.pending.index';
+    }else {
+        $returnUrl = 'dashboard';
+    }
+@endphp
 <div>
     {{-- Breadcrumb --}}
     <div class="breadcrumb flex flex-row justify-between ">
@@ -20,10 +32,10 @@
             @include('alert')
 
             {{-- Subject --}}
-            <div class="my-3 flex justify-between">
+            <div class="my-3 flex justify-between" wire:ignore>
                 <div><i class="bi bi-chat"></i> <span>Conversation History</span></div>
                 <ul class="flex">
-                    <li><a href="{{ route('ticket.all') }}" class="mx-2 text-indigo-500"> <i class="bi bi-arrow-return-left"></i> Back</a></li>
+                    <li><a href="{{ route($returnUrl) }}" class="mx-2 text-indigo-500"> <i class="bi bi-arrow-return-left"></i> Back</a></li>
                 </ul>
             </div>
 
