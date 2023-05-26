@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Public;
 use App\Helpers\GenerateTicketID;
 use App\Models\Admin\Ticket;
 use App\Models\Admin\Topic;
+use App\Notifications\Public\TicketRaisedNotification;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
@@ -76,10 +77,24 @@ class RaiseTicket extends Component
             'updated_at'     => null
         ]);
 
+        // Prepare data for notification
+        $data = [
+            'ticket_id' => $save->ticket_id,
+            'name'      => $save->name,
+            'subject'   => $save->subject,
+            'topic'     => $save->Topic->title,
+            'query'     => $save->description,
+            'date'      => $save->created_at,
+        ];
+
         if($save->exists){
 
-            //Email notification
-
+            // trigger notification
+            try{
+                $save->notify(new TicketRaisedNotification($data));
+            }catch(\Exception $e){
+                $e->getMessage();
+            }
 
             //return message
             session()->flash('success',$save->ticket_id);

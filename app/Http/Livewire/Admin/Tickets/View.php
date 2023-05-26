@@ -53,9 +53,4 @@ class View extends Component
             $this->alert('success', 'Status changed!');
         }
     }
-
-    public function sendReply()
-    {
-        dd($this->replyContent);
-    }
 }

@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Ticket;
 use App\Models\TicketResponse;
 use App\Notifications\Admin\TicketReplyNotification;
-use App\Recipients\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,12 +43,8 @@ class TicketReplyController extends Controller
 
         try{
 
-            // get Email of the ticket raiser
-            $recipient = new Customer($ticket->email);
-
             // trigger notfication
-            // Pass details to notification mail
-            $recipient->notify(new TicketReplyNotification($data));
+            $ticket->notify(new TicketReplyNotification($data));
 
             // Save log to database
             $reply->save();
