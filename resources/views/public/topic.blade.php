@@ -35,7 +35,7 @@
                                 </a>
                             </li>
                         @empty
-                            <li>No any data found!</li>
+                            <li>{{ __('messages.not_found') }}</li>
                         @endforelse
                     </ul>
                 </div>

@@ -15,4 +15,6 @@ return [
     'was_useful'          => 'Was this information helpful?',
     'yes'                 => 'Yes',
     'no'                  => 'No',
+    'search_try'          => 'Oops, No results! Try some other keywords.',
+    'not_found'           => 'Not data found!'
 ];
