@@ -51,11 +51,7 @@
                         @endisset
                     </div>
 
-                    <div class="mt-8 mb-3 text-sm">
-                        <span class="font-bold">{{ __('messages.was_useful') }}</span>
-                        <a href="" class="p-2 border rounded-md border-gray-400 hover:border-green-500 hover:bg-green-500 hover:text-white">{{ __('messages.yes') }}</a>
-                        <a href="" class="p-2 border rounded-md border-gray-400 hover:border-red-500 hover:bg-red-500 hover:text-white">{{ __('messages.no') }}</a>
-                    </div>
+                    @livewire('public.support-feedback', ['question_id' => $question->question_id])
                 </div>
 
             </div>

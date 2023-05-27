@@ -2,6 +2,7 @@
 
 namespace App\Models\Admin;
 
+use App\Models\QuestionFeedback;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -25,5 +26,10 @@ class Question extends Model
     public function Topic()
     {
         return $this->belongsTo(Topic::class);
+    }
+
+    public function Feedback()
+    {
+        return $this->belongsTo(QuestionFeedback::class,'id','questions_id');
     }
 }

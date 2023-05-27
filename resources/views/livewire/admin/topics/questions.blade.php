@@ -138,6 +138,7 @@
                             <th class="px-4 py-3">
                                 Views
                             </th>
+                            <th class="px-4 py-3"></th>
                             <th class="px-4 py-3 hidden md:block">
                                 <span class="">Created At</span>
                             </th>
@@ -180,6 +181,11 @@
                                     <span class="bg-blue-100 text-indigo-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
                                         {{ $question->views }}
                                     </span>
+                                </td>
+
+                                <td class="px-4 py-3">
+                                    {{ optional($question->Feedback)->yes }} Like <i class="bi bi-hand-thumbs-up"></i> 
+                                    | Dislike <i class="bi bi-hand-thumbs-down"></i> {{ optional($question->Feedback)->no }}
                                 </td>
 
                                 <td class="px-4 py-3 hidden md:block"><span>{{ $question->created_at }}</span></td>

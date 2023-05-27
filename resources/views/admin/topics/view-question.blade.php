@@ -24,8 +24,12 @@
                 <div>
                     <span><i class="bi bi-calendar-date"></i> Added Date : {{ $question->created_at }}</span>
                 </div>
-                <div>
+                <div class="flex justify-between gap-x-2">
                     <i class="bi bi-eye"></i> Views: {{ $question->views }}
+                    <div>
+                        | {{ optional($question->Feedback)->yes }} Like <i class="bi bi-hand-thumbs-up"></i> 
+                        | Dislike <i class="bi bi-hand-thumbs-down"></i> {{ optional($question->Feedback)->no }}
+                    </div>
                 </div>
             </div>
         </div>

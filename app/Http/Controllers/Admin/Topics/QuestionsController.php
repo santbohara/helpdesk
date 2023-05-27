@@ -58,7 +58,7 @@ class QuestionsController extends Controller
 
     public function view($id)
     {
-        $question = Question::findOrFail($id);
+        $question = Question::with('Feedback')->findOrFail($id);
 
         return view('admin.topics.view-question',[
             'question' => $question

@@ -12,7 +12,7 @@ class LandingConroller extends Controller
     public function index()
     {
         $topics            = Topic::whereActive(true)->orderBy('order')->get();
-        $frequentQuestions = Question::with('Topic')->latest()->take(5)->get();;
+        $frequentQuestions = Question::with('Topic')->orderBy('views','desc')->take(5)->get();;
 
         return view('public.landing')->with([
             'topics'            => $topics,

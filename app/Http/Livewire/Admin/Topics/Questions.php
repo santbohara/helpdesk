@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Topics;
 
 use App\Exports\Admin\QuestionsExport;
+use App\Http\Livewire\Public\SupportFeedback;
 use App\Models\Admin\Question;
 use App\Models\Admin\Topic;
 use Illuminate\Http\Response;
@@ -20,7 +21,8 @@ class Questions extends Component
 
     public function render()
     {
-        $questions = Question::search('title',$this->search)
+        $questions = Question::select("id","topic_id","title","active","views")
+        ->search('title',$this->search)
             ->when(count(array_filter($this->topic)), function ($query) {
                 return $query->whereIn('topic_id', $this->topic);
             })
@@ -28,6 +30,7 @@ class Questions extends Component
                 return $query->whereIn('active', $this->active);
             })
         ->with('Topic')
+        ->with('Feedback')
         ->orderBy('order')
         ->paginate('8');
 
@@ -35,7 +38,7 @@ class Questions extends Component
 
         return view('livewire.admin.topics.questions',[
             'questions' => $questions,
-            'topics'    => $topics
+            'topics'    => $topics,
         ]);
     }
 
