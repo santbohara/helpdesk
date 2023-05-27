@@ -188,7 +188,7 @@
                                     | Dislike <i class="bi bi-hand-thumbs-down"></i> {{ optional($question->Feedback)->no }}
                                 </td>
 
-                                <td class="px-4 py-3 hidden md:block"><span>{{ $question->created_at }}</span></td>
+                                <td class="px-4 py-3 hidden md:block"><span>{{ $question->created_at->format('Y-m-d') }}</span></td>
 
                                 <td class="px-4 py-3">
 

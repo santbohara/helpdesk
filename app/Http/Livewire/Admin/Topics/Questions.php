@@ -21,7 +21,7 @@ class Questions extends Component
 
     public function render()
     {
-        $questions = Question::select("id","topic_id","title","active","views")
+        $questions = Question::select("id","topic_id","title","active","views","created_at")
         ->search('title',$this->search)
             ->when(count(array_filter($this->topic)), function ($query) {
                 return $query->whereIn('topic_id', $this->topic);
