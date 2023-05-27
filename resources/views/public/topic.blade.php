@@ -12,25 +12,26 @@
 
             <div class="w-full mb-3 md:mr-3">
 
-                <div class="flex items-center pb-2 border-b-2">
+                <div class="flex items-center">
                     <img class="w-10 h-10" src="{{ asset('icons/account.png') }}" alt="Accounts">
                     <div class="pl-2">
                         <h3 class="text-xl font-bold text-red-500">
                             {{ __('trans-topic.'.$topic->id) }}
                         </h3>
-                        <p class="font-light text-gray-500">
+                        <p class="font-light text-xs text-gray-500">
                             {{ __('trans-topic-desc.'.$topic->id) }}
                         </p>
                     </div>
                 </div>
 
                 <div class="mt-6">
-                    <ul>
+                    <ul class="p-3 border rounded-lg">
                         @forelse ($questions as $question)
-                            <li class="flex flex-row my-2  text-red-500">
-                                <i class="bi bi-question-circle-fill"></i>
-                                <a href="{{ route('support.view',[$topic->slug,$question->slug]) }}" class="pl-2 font-bold hover:underline hover:text-red-700">
+                            <li class="flex flex-row text-gray-700">
+                                <a href="{{ route('support.view',[$topic->slug,$question->slug]) }}" 
+                                    class="w-full flex justify-between items-center p-3 rounded-lg hover:bg-gray-200 hover:text-gray-800 transition ease-in-out duration-300">
                                     {{ __('questions.'.$question->id) }}
+                                    <i class="bi bi-chevron-right text-xs"></i>
                                 </a>
                             </li>
                         @empty

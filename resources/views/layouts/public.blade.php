@@ -20,7 +20,7 @@
             @include('layouts.header')
 
             <!-- Page Content -->
-            <main>
+            <main class="text-sm">
                 {{ $slot }}
             </main>
         </div>

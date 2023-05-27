@@ -40,16 +40,16 @@
                 <div>
                     <div class="max-w-screen-md md:mx-3">
 
-                        <p class="text-xl pb-1 mb-3 font-bold ">{{ __('messages.general_topics') }}</p>
+                        <p class="text-lg pb-1 mb-3 text-gray-600">{{ __('messages.general_topics') }}</p>
 
-                        <div class="grid gap-3 mb-6 lg:mb-16 md:grid-cols-2">
+                        <div class="grid gap-4 mb-6 lg:mb-16 md:grid-cols-2">
 
                             @forelse ($topics as $topic)
-                                <a href="{{ route('support.topic',$topic->slug) }}" class="block hover:bg-gray-200 bg-white border-b-2 hover:rounded-md">
+                                <a href="{{ route('support.topic',$topic->slug) }}" class="block px-3 hover:shadow-lg hover:border-gray-300 bg-white border rounded-lg transition ease-in-out duration-300">
                                     <div class="flex items-center p-2">
-                                        <img class="w-16 h-16" src="{{ asset('storage/'.$topic->icon) }}" alt="QR">
+                                        <img class="w-12 h-12" src="{{ asset('storage/'.$topic->icon) }}" alt="QR">
                                         <div class="p-5">
-                                            <h3 class="text-xl font-bold text-red-500">
+                                            <h3 class="text-md font-semibold text-red-500">
                                                 {{ __('trans-topic.'.$topic->id) }}
                                             </h3>
                                             <p class="mt-3 font-light text-gray-500">
