@@ -17,9 +17,17 @@ class SupportSearch extends Component
 
     public function updatedTerm()
     {
-        $this->data = Question::with('Topic')
-            ->where('title', 'like', '%' . $this->term . '%')
-            ->orWhere('title_unicode', 'like', '%' . $this->term . '%')
-            ->get();
+        $this->data = Question::select('questions.*','topics.slug as t_slug','topics.active')
+        ->join('topics','topics.id','questions.topic_id')
+        ->where('questions.active',true)
+        ->where('topics.active',true)
+        ->where(function($query) {
+            $query
+            ->where('questions.title', 'like', '%' . $this->term . '%')
+            ->orWhere('questions.title_unicode', 'like', '%' . $this->term . '%')
+            ->orWhere('topics.title', 'like', '%' . $this->term . '%')
+            ->orWhere('topics.title_unicode', 'like', '%' . $this->term . '%');
+        })
+        ->get();
     }
 }
