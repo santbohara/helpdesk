@@ -28,6 +28,7 @@ class SupportSearch extends Component
             ->orWhere('topics.title', 'like', '%' . $this->term . '%')
             ->orWhere('topics.title_unicode', 'like', '%' . $this->term . '%');
         })
+        ->take(5)
         ->get();
     }
 }
