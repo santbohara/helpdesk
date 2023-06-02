@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->text('ticket_id');
             $table->text('name');
             $table->text('account_number');
             $table->text('mobile');
@@ -20,13 +21,12 @@ return new class extends Migration
             $table->uuid('topic_id')->index();
             $table->text('subject');
             $table->longText('description');
-            $table->bigInteger('status');
+            $table->integer('status');
             $table->text('ip');
             $table->text('user_agent');
             $table->timestamps();
 
             $table->foreign('topic_id')->references('id')->on('topics')->onDelete('cascade');
-            $table->foreign('status')->references('id')->on('ticket_statuses')->onDelete('cascade');
         });
     }
 

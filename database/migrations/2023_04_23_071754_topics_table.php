@@ -17,8 +17,11 @@ return new class extends Migration
             $table->string('title_unicode');
             $table->string('desc');
             $table->string('desc_unicode');
+            $table->string('slug');
             $table->binary('icon');
             $table->boolean('active');
+            $table->integer('order')->nullable();
+            $table->string('created_by');
             $table->timestamps();
         });
     }

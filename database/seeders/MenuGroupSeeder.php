@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\MenuGroup;
+use App\Models\Admin\MenuGroup;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -13,7 +13,7 @@ class MenuGroupSeeder extends Seeder
      */
     public function run(): void
     {
-        MenuGroup::truncate();
+        // MenuGroup::truncate();
 
         $data = [
             [

@@ -10,9 +10,9 @@ Clone Repo then:
 2. copy .env.example file to .env
 3. Run "php artisan key:generate"
 4. Update database connection in .env
-5. Run "php artisan migrate"
+5. Run "php artisan migrate" & "php artisan db:seed"
 6. Done !
 
 For development: Run "php artisan serve" and "npm run dev"
 
---> Made with Laravel 10 + Vite + Tailwind.
+--> Made with Laravel 10 + Livewire + Vite + Tailwind.
